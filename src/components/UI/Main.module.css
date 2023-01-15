@@ -1,0 +1,8 @@
+.text {
+    text-align: center;
+    font: normal normal bold 24px/32px Segoe UI;
+    letter-spacing: 0px;
+    color: #4a4949;
+    opacity: 1;
+    padding: 5px;
+}
