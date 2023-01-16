@@ -15,6 +15,10 @@ const QuizSettings = (props: any) => {
 
     const handleClose = () => setClosed(true);
 
+    const getQuestions = async (limit: number, category: string) => {
+        const questions = await getQuestions(limit, category)
+    }
+
     return (
         <Fragment>
             {!closed &&
@@ -45,7 +49,7 @@ const QuizSettings = (props: any) => {
                         <output>{questionsNumber}</output>
                     </div>
 
-                    <button className={styles.button}>Start</button>
+                    <button className={styles.button} onClick={() => getQuestions(questionsNumber, props.category)}>Start</button>
                 </div>
             }
         </Fragment>
