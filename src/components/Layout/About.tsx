@@ -1,9 +1,9 @@
-import {Fragment} from "react";
+import {Fragment, useRef} from "react";
 import styles from './About.module.css';
 const About = () => {
     return (
         <Fragment>
-            <div  id='#about' className={styles.container}>
+            <div  id='about' className={styles.container}>
                 <p className={styles.aboutText}>About:</p>
                 <p className={styles.info}>
                     QuizApp is based on:

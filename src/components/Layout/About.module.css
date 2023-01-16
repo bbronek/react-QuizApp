@@ -10,7 +10,7 @@
 
 .aboutText {
     width: 500px;
-    font-size: 8rem;
+    font-size: 3rem;
     margin-left: -9rem;
     margin-top: -9rem;
     font-family: 'Castoro', monospace;
@@ -18,9 +18,9 @@
 }
 
 .info {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-left: -6rem;
-    margin-top: -7rem;
+    margin-top: -1rem;
     font-family: 'Castoro', monospace;
     color: aliceblue;
 }

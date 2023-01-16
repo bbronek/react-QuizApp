@@ -1,4 +1,4 @@
-import {Fragment} from 'react';
+import {Fragment, useRef} from 'react';
 import styles from './Header.module.css'
 const Header = () => {
     return (
