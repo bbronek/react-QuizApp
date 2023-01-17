@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import Card from "./Card";
+import Card from "./Card/Card";
 
 interface CardListProps {
     categoryList: Array<string>

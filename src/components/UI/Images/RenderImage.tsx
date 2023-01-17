@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import Image from './Image';
-import getImageRequest from '../../api/requests/getImageRequest';
+import getImageRequest from '../../Api/requests/getImageRequest';
 
 interface RenderImageProps {
     query: string

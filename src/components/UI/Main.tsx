@@ -1,4 +1,4 @@
-import CardList from './Cards/Card/CardList';
+import CardList from './Cards/CardList';
 import styles from './Main.module.css';
 
 const Categories = ['Film & TV', 'Food & Drink', 'Science',

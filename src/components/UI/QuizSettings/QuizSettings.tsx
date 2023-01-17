@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import styles from './QuizSettings.module.css'
-import getQuestions from '../../api/requests/getQuestions';
+import getQuestions from '../../Api/requests/getQuestions';
 import QuizQuestions from '../QuizQuestions/QuizQuestions';
 
 const QuizSettings = (props: any) => {
