@@ -23,6 +23,7 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
     const [questionId, setQuestionId] = useState(0);
     const [answers, setAnswers] = useState(shuffleArray([props.questions[questionId]['correctAnswer']].concat(props.questions[questionId]['incorrectAnswers'])))
     const [chosenAnswer, setChosenAnswer] = useState(answers[0])
+    const [correctAnswer, setCorrectAnswer] = useState(props.questions[questionId]['correctAnswer'])
     const [isLastQuestion, setLastQuestion] = useState(false);
 
     const onChangeAnswer = (event: any) => {
@@ -30,7 +31,7 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
     }
 
     const onSubmitClick = () => {
-        if (chosenAnswer === props.questions[questionId]['correctAnswer']) {
+        if (chosenAnswer === correctAnswer) {
             setPoints(points + 1);
         }
 
@@ -41,6 +42,7 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
         }
 
         setQuestionId(questionId + 1);
+        setCorrectAnswer(props.questions[questionId + 1]['correctAnswer'])
         setAnswers([props.questions[questionId + 1]['correctAnswer']].concat(props.questions[questionId + 1]['incorrectAnswers']));
     }
     console.log(props.questions);
