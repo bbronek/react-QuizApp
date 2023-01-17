@@ -1,5 +1,6 @@
-import styles from './QuizQuestion.module.css'
-import React, {Fragment, useState} from "react";
+import styles from './QuizQuestions.module.css'
+import React, {Fragment, useState} from 'react';
+import QuizResults from "./QuizResults";
 
 interface QuizQuestionProps {
     questions: Array<any>
@@ -16,9 +17,8 @@ const shuffleArray = (array:Array<string>) => {
     return array;
 }
 
-const QuizQuestion: React.FC<QuizQuestionProps> = props => {
+const QuizQuestions: React.FC<QuizQuestionProps> = props => {
     const [closedQuestions, setClosedQuestions] = useState(false);
-    const [closedResults, setClosedResults] = useState(false);
     const [points, setPoints] = useState(0);
     const [questionId, setQuestionId] = useState(0);
     const [answers, setAnswers] = useState(shuffleArray([props.questions[questionId]['correctAnswer']].concat(props.questions[questionId]['incorrectAnswers'])))
@@ -45,7 +45,6 @@ const QuizQuestion: React.FC<QuizQuestionProps> = props => {
     }
     console.log(props.questions);
     const handleCloseQuestions = () => setClosedQuestions(true);
-    const handleCloseResults = () => setClosedResults(true);
 
     return (
         <Fragment>
@@ -56,26 +55,20 @@ const QuizQuestion: React.FC<QuizQuestionProps> = props => {
                     <h5>Question {questionId + 1} / {props.questions.length}</h5>
                     <h3>Question: {props.questions[questionId]['question']}</h3>
                     <div onChange={onChangeAnswer}>
-                        <input style={{display: 'block'}} type="radio" value={answers[0]} name='answer' defaultChecked/> {answers[0]}
-                        <input style={{display: 'block'}} type="radio" value={answers[1]} name='answer' /> {answers[1]}
-                        <input style={{display: 'block'}} type="radio" value={answers[2]} name='answer' /> {answers[2]}
-                        <input style={{display: 'block'}} type="radio" value={answers[3]} name='answer' /> {answers[3]}
+                        <input style={{display: 'block'}} type='radio' value={answers[0]} name='answer' defaultChecked/> {answers[0]}
+                        <input style={{display: 'block'}} type='radio' value={answers[1]} name='answer' /> {answers[1]}
+                        <input style={{display: 'block'}} type='radio' value={answers[2]} name='answer' /> {answers[2]}
+                        <input style={{display: 'block'}} type='radio' value={answers[3]} name='answer' /> {answers[3]}
                     </div>
                     <button className={styles.button} onClick={onSubmitClick}>Submit</button>
                 </div>
             }
-            {isLastQuestion && !closedResults &&
-                <div className={styles.resultsBox}>
-                    <span id={styles['close']} onClick={handleCloseResults}>X</span>
-                    <h2>Your Results:</h2>
-                    <h4>Points: {points}/{props.questions.length}</h4>
-                    <h3>{Math.floor(points/props.questions.length) * 100}%</h3>
-                    <button className={styles.button} onClick={handleCloseResults}>Close</button>
-                </div>
+            {isLastQuestion &&
+                <QuizResults points={points} possiblePoints={props.questions.length}/>
             }
         </Fragment>
 
     );
 }
 
-export default QuizQuestion;
+export default QuizQuestions;

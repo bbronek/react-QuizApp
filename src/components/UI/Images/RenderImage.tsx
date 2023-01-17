@@ -1,7 +1,6 @@
-import React, {Fragment, useState} from "react";
-import NoImages from "./NoImage";
-import Image from "./Image";
-import getImageRequest from "../../api/requests/getImageRequest";
+import React, {Fragment, useState} from 'react';
+import Image from './Image';
+import getImageRequest from '../../api/requests/getImageRequest';
 
 interface RenderImageProps {
     query: string

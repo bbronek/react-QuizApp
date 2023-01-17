@@ -1,7 +1,7 @@
 import styles from './Card.module.css'
-import React, {Fragment, useEffect, useRef, useState} from "react";
-import RenderImage from "../../Images/RenderImage";
-import QuizSettings from "../../QuizSettings/QuizSettings";
+import React, {Fragment, useState} from 'react';
+import RenderImage from '../../Images/RenderImage';
+import QuizSettings from '../../QuizSettings/QuizSettings';
 
 interface CardProps {
     category: string

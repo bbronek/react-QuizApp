@@ -1,7 +1,7 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment, useState} from 'react';
 import styles from './QuizSettings.module.css'
-import getQuestions from "../../api/requests/getQuestions";
-import QuizQuestion from "../QuizQuestions/QuizQuestion";
+import getQuestions from '../../api/requests/getQuestions';
+import QuizQuestions from '../QuizQuestions/QuizQuestions';
 const QuizSettings = (props: any) => {
     const [questionsNumber, setQuestionsNumber] = useState(1);
     const [difficulty, setDifficulty] = useState('easy');
@@ -36,21 +36,21 @@ const QuizSettings = (props: any) => {
                     <p>Category: {props.category}</p>
 
                     <div style={{marginTop: '4rem'}}>
-                        <label htmlFor="difficulty">Difficulty: </label>
-                        <select name="Difficulty" id="difficulty" onChange={handleSelectChange}>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
+                        <label htmlFor='difficulty'>Difficulty: </label>
+                        <select name='Difficulty' id='difficulty' onChange={handleSelectChange}>
+                            <option value='easy'>Easy</option>
+                            <option value='medium'>Medium</option>
+                            <option value='hard'>Hard</option>
                         </select>
                     </div>
                     <div style={{marginTop: '3rem'}}>
-                        <label htmlFor="questionsLimit">Limit Questions (between 1 and 20) </label>
-                        <input type="range"
+                        <label htmlFor='questionsLimit'>Limit Questions (between 1 and 20) </label>
+                        <input type='range'
                                value={questionsNumber}
-                               id="questionsNumber"
-                               name="questionsLimit"
-                               min="1"
-                               max="20"
+                               id='questionsNumber'
+                               name='questionsLimit'
+                               min='1'
+                               max='20'
                                step="1"
                                onChange={handleRangeChange}>
                         </input>
@@ -60,7 +60,7 @@ const QuizSettings = (props: any) => {
                     <button className={styles.button} onClick={() => getQuestionsOperation(questionsNumber, difficulty, props.category)}>Start</button>
                 </div>
             }
-            {requestDone && <QuizQuestion questions={questions}/>}
+            {requestDone && <QuizQuestions questions={questions}/>}
         </Fragment>
     );
 }

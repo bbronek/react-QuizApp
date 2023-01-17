@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const getQuestions = async (data: any) => {
     try {

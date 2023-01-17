@@ -1,5 +1,5 @@
-import axios from "axios";
-import {photoApiKey} from "../config";
+import axios from 'axios';
+import {photoApiKey} from '../config';
 
 const getImageRequest = async (query: String) => {
     try {
