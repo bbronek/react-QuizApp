@@ -2,6 +2,7 @@ import React, {Fragment, useState} from 'react';
 import styles from './QuizSettings.module.css'
 import getQuestions from '../../api/requests/getQuestions';
 import QuizQuestions from '../QuizQuestions/QuizQuestions';
+
 const QuizSettings = (props: any) => {
     const [questionsNumber, setQuestionsNumber] = useState(1);
     const [difficulty, setDifficulty] = useState('easy');
@@ -43,6 +44,7 @@ const QuizSettings = (props: any) => {
                             <option value='hard'>Hard</option>
                         </select>
                     </div>
+
                     <div style={{marginTop: '3rem'}}>
                         <label htmlFor='questionsLimit'>Limit Questions (between 1 and 20) </label>
                         <input type='range'

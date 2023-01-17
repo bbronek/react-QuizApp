@@ -57,12 +57,14 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
                     <h4>Points: {points}/{props.questions.length}</h4>
                     <h5>Question {questionId + 1} / {props.questions.length}</h5>
                     <h3>Question: {props.questions[questionId]['question']}</h3>
+
                     <div onChange={onChangeAnswer}>
                         <input style={{display: 'block'}} type='radio' value={answers[0]} name='answer' defaultChecked/> {answers[0]}
                         <input style={{display: 'block'}} type='radio' value={answers[1]} name='answer' /> {answers[1]}
                         <input style={{display: 'block'}} type='radio' value={answers[2]} name='answer' /> {answers[2]}
                         <input style={{display: 'block'}} type='radio' value={answers[3]} name='answer' /> {answers[3]}
                     </div>
+
                     <button className={styles.button} onClick={onSubmitClick}>Submit</button>
                 </div>
             }
