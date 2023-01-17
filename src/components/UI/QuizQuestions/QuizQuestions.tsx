@@ -1,6 +1,5 @@
 import styles from './QuizQuestions.module.css'
 import React, {Fragment, useState} from 'react';
-import QuizResults from "./QuizResults";
 
 interface QuizQuestionProps {
     questions: Array<any>
@@ -19,6 +18,7 @@ const shuffleArray = (array:Array<string>) => {
 
 const QuizQuestions: React.FC<QuizQuestionProps> = props => {
     const [closedQuestions, setClosedQuestions] = useState(false);
+    const [closedResults, setClosedResults] = useState(false);
     const [points, setPoints] = useState(0);
     const [questionId, setQuestionId] = useState(0);
     const [answers, setAnswers] = useState(shuffleArray([props.questions[questionId]['correctAnswer']].concat(props.questions[questionId]['incorrectAnswers'])))
@@ -45,6 +45,7 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
     }
     console.log(props.questions);
     const handleCloseQuestions = () => setClosedQuestions(true);
+    const handleCloseResults = () => setClosedResults(true);
 
     return (
         <Fragment>
@@ -63,8 +64,14 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
                     <button className={styles.button} onClick={onSubmitClick}>Submit</button>
                 </div>
             }
-            {isLastQuestion &&
-                <QuizResults points={points} possiblePoints={props.questions.length}/>
+            {isLastQuestion && !closedResults &&
+                <div className={styles.resultsBox}>
+                    <span id={styles['close']} onClick={handleCloseResults}>X</span>
+                    <h2>Your Results:</h2>
+                    <h4>Points: {points}/{props.questions.length}</h4>
+                    <h3>{Math.round(points/props.questions.length * 100)}%</h3>
+                    <button className={styles.button} onClick={handleCloseResults}>Close</button>
+                </div>
             }
         </Fragment>
 
