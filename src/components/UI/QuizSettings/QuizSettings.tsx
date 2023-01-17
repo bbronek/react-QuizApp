@@ -1,9 +1,13 @@
 import React, {Fragment, useState} from "react";
 import styles from './QuizSettings.module.css'
+import getQuestions from "../../api/requests/getQuestions";
+import QuizQuestion from "../QuizQuestions/QuizQuestion";
 const QuizSettings = (props: any) => {
     const [questionsNumber, setQuestionsNumber] = useState(1);
     const [difficulty, setDifficulty] = useState('easy');
     const [closed, setClosed] = useState(false);
+    const [questions, setQuestions] = useState([]);
+    const [requestDone, setRequestDone] = useState(false);
 
     const handleRangeChange = (event: any) => {
         setQuestionsNumber(event.target.value);
@@ -15,8 +19,12 @@ const QuizSettings = (props: any) => {
 
     const handleClose = () => setClosed(true);
 
-    const getQuestions = async (limit: number, category: string) => {
-        const questions = await getQuestions(limit, category)
+    const getQuestionsOperation = async (limit: number, difficulty: string, category: string) => {
+        const  questions: any = await getQuestions({limit: limit, difficulty: difficulty, category: category});
+
+        setClosed(true);
+        setRequestDone(true);
+        setQuestions(questions.data)
     }
 
     return (
@@ -49,9 +57,10 @@ const QuizSettings = (props: any) => {
                         <output>{questionsNumber}</output>
                     </div>
 
-                    <button className={styles.button} onClick={() => getQuestions(questionsNumber, props.category)}>Start</button>
+                    <button className={styles.button} onClick={() => getQuestionsOperation(questionsNumber, difficulty, props.category)}>Start</button>
                 </div>
             }
+            {requestDone && <QuizQuestion questions={questions}/>}
         </Fragment>
     );
 }
