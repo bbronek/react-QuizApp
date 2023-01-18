@@ -30,6 +30,7 @@
     font-size: 16px;
     opacity: 0.8;
     margin-top: 6rem;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -46,4 +47,8 @@
 
 #close:hover {
     opacity: 1;
+}
+
+select, option, input {
+    cursor: pointer;
 }

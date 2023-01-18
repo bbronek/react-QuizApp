@@ -17,6 +17,7 @@
     font-size: 2rem;
     line-height: 25px;
     border-radius: 4px;
+    opacity: 0.7;
 }
 
 .header a.logo {
@@ -25,17 +26,12 @@
 }
 
 .header a:hover {
-    background-color: #e0ecee;
     color: black;
+    opacity: 1;
 }
 
 .header a.active {
-    background-color: dodgerblue;
     color: white;
-}
-
-.header-right {
-    float: right;
 }
 
 @media screen and (max-width: 500px) {
