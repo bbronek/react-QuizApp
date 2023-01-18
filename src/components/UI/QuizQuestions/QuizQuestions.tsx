@@ -45,7 +45,7 @@ const QuizQuestions: React.FC<QuizQuestionProps> = props => {
         setCorrectAnswer(props.questions[questionId + 1]['correctAnswer'])
         setAnswers([props.questions[questionId + 1]['correctAnswer']].concat(props.questions[questionId + 1]['incorrectAnswers']));
     }
-    console.log(props.questions);
+
     const handleCloseQuestions = () => setClosedQuestions(true);
     const handleCloseResults = () => setClosedResults(true);
 
