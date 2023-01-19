@@ -8,8 +8,7 @@ const Main = () => {
     return (
         <div>
             <p className={styles.text}><b>Select your Quiz category:</b></p>
-            <CardList categoryList={Categories}/>
-
+            <CardList categoryList={Categories}/>s
         </div>
     );
 }

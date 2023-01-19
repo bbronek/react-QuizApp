@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './App.css';
 import Header from "./components/Layout/Header";
 import Main from "./components/UI/Main";
